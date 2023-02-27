@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import random as rand
 
-size = 4 #how many rows of 4 harmonies per sample, can be changed 
+size = 4 #how many rows of 4 notes (1 harmony) per sample, can be changed 
 
 def prep():
     train_data_and_labels = []
