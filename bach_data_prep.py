@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import random as rand
 
-size = 4
+size = 4 #how many rows of 4 harmonies per sample, can be changed 
 
 def prep():
     train_data_and_labels = []
@@ -94,7 +94,7 @@ def bach_prep():
             if temp_note4_min < note4_min and temp_note4_min > 0:
                 note4_min = temp_note4_min
             csv=csv.div(127)
-            harmonies = csv.iloc[0:,0:].to_numpy()
+            harmonies = csv.iloc[:,:].to_numpy()
             temp_data=[]
             for i in range(len(harmonies[:-size])):
                 harm_of_size = harmonies[i:i+size].tolist()
