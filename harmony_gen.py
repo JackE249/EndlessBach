@@ -26,11 +26,11 @@ def sample(preds, temperature=1.0):
 
 full_generated_piece = []
 generated_notes = csv.iloc[:,:].to_numpy().flatten().tolist()[:maxlen]
-full_generated_piece += [[generated_notes]]
-full_generated_piece += [[generated_notes]]
-full_generated_piece += [[generated_notes]]
-full_generated_piece += [[generated_notes]]
-for j in range(temperature):
+full_generated_piece += [generated_notes]
+full_generated_piece += [generated_notes]
+full_generated_piece += [generated_notes]
+full_generated_piece += [generated_notes]
+for j in range(len(temperature)):
   for i in range(rows_size*4):
       print(i)
       sampled = np.zeros(shape=(1,maxlen,len(notes)))
@@ -47,10 +47,10 @@ for j in range(temperature):
   f = open("generated_377piece" + str(temperature[j]) + ".csv", 'w')
   f.write("note0,note1,note2,note3\n")
   for i in range(0,(rows_size*4)+60,4):
-      f.write(str(full_generated_piece[i])+',')
-      f.write(str(full_generated_piece[i+1])+',')
-      f.write(str(full_generated_piece[i+2])+',')
-      f.write(str(full_generated_piece[i+3])+'\n')
+      f.write(str(full_generated_piece[j][i])+',')
+      f.write(str(full_generated_piece[j][i+1])+',')
+      f.write(str(full_generated_piece[j][i+2])+',')
+      f.write(str(full_generated_piece[j][i+3])+'\n')
   f.close()
 
 
